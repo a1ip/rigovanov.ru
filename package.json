@@ -1,0 +1,44 @@
+{
+  "name": "MyBlog",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Resonal blog of Phil Rigovanov",
+  "main": "index.js",
+  "scripts": {
+    "test": "write-good src/posts/**/*.md",
+    "serve": "serve build -p ${PORT:-3000}",
+    "build": "node build.js",
+    "deploy": "npm run build && cd build && git init . && git add . && git commit -m \"Deploy\"; git push \"git@github.com:a1ip/rigovanov.ru.git\" master:gh-pages --force && rm -rf .git"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/a1ip/rigovanov.ru.git"
+  },
+  "author": {
+    "name": "Phil Rigovanov",
+    "email": "phil@rigovanov.ru",
+    "url": "http://rigovanov.ru"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "autoprefixer-core": "^5.1.8",
+    "highlight.js": "^8.5.0",
+    "jade": "^1.9.2",
+    "metalsmith": "^1.5.0",
+    "metalsmith-autoprefixer": "^1.0.1",
+    "metalsmith-build-date": "^0.1.0",
+    "metalsmith-collections": "^0.7.0",
+    "metalsmith-collections-paginate": "^2.0.1",
+    "metalsmith-define": "^1.0.0",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-pagination": "^1.0.1",
+    "metalsmith-permalinks": "^0.4.0",
+    "metalsmith-snippet": "^1.0.1",
+    "metalsmith-templates": "^0.7.0",
+    "moment": "^2.10.0",
+    "serve": "^1.4.0",
+    "write-good": "^0.9.1"
+  }
+}

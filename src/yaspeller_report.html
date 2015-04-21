@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>yaspeller report</title>
+<style>
+    html, body
+    {
+        font-size: 1em;
+        font-family: Arial, sans-serif;
+    }
+
+    .page
+    {
+        padding: 20px 70px 30px 50px;
+    }
+
+    .word
+    {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 3px;
+        padding: 0.1em 0.2em;
+    }
+
+    .table
+    {
+        table-layout: fixed;
+        width: 100%;
+        margin-left: 2em;
+        font-size: 0.9em;
+        border-spacing: 0 0;
+        border-collapse: collapse;
+    }
+
+    .table th
+    {
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .table th, .table td
+    {
+        padding: 0.3em;
+    }
+
+    .table tr:nth-child(2n)
+    {
+        background-color: #fcfcfc;
+    }
+
+    .table tr:hover
+    {
+       background-color: #f0f0f0;
+    }
+
+    .table caption
+    {
+        font-size: 1.2em;
+        margin-top: 1em;
+        margin-bottom: 0.5em;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .table td,
+    .table th
+    {
+        border: 1px solid #ddd;
+        padding: 6px 13px;
+    }
+
+    .table-num,
+    .table-count
+    {
+        text-align: right;
+    }
+
+    .table-num
+    {
+        width: 2em;
+        text-align: right;
+    }
+
+    .table-count
+    {
+        width: 2.5em;
+    }
+
+    .syserr,
+    .err,
+    .ok
+    {
+        margin-top: 2.5em;
+    }
+
+    .syserr
+    {
+        color: red;
+    }
+
+    .sym-err,
+    .num-err
+    {
+        color: red;
+    }
+
+    .num-ok,
+    .sym-ok
+    {
+        color: green;
+    }
+
+    .sym-ok,
+    .sym-err
+    {
+        display: inline-block;
+        font-weight: bold;
+        width: 1em;
+    }
+
+    .letters-en
+    {
+        color: red;
+    }
+
+    .letters-ru
+    {
+        color: green;
+    }
+
+    .time
+    {
+        margin-left: 0.5em;
+        color: #999;
+        font-size: 0.8em;
+    }
+
+    a:not([href]),
+    a:not([href]):hover
+    {
+        color: black;
+    }
+</style>
+</head>
+<body>
+<div class="page">
+    <div class="total">Processed resources: 1 (<span class="sym-err">&chi;</span>&ndash; 1</span>, <span class="sym-ok">&checkmark;</span>&ndash; 0)<br/>Checking finished: 8.659 sec.</div><div class="err"><span class="sym-err">&chi;</span><a target="_blank" href="file://localhost/Users/phil/my/myblog/src/%D0%92-%D0%BA%D0%B0%D0%BA%D0%BE%D0%BC-%D0%BE%D1%82%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%B8%D0%B8-%D1%82%D1%8B-%D0%BA-%D0%94%D1%83%D1%85%D1%83-%D0%A1%D0%B2%D1%8F%D1%82%D0%BE%D0%BC%D1%83.html" title="/Users/phil/my/myblog/src/В-каком-отношении-ты-к-Духу-Святому.html">В-каком-отношении-ты-к-Духу-Святому.html</a><span class="time">7873 ms</span></div>
+<div class="typo">
+<table class="table"><caption>Typos</caption>
+<tr><th class="table-num">Num.</th><th class="table-name">Typo</th><th class="table-count">Count</th><th class="table-suggest">Suggest</th><th class="table-comment">Comment</th></tr>
+<tr>
+<td class="table-num">1.</td>
+<td class="table-name"><span class="word">1Ин</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">1 Ин</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">2.</td>
+<td class="table-name"><span class="word">1Иоан</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">1 Иоанн</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">3.</td>
+<td class="table-name"><span class="word">1Иоанна</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">1 Иоанна</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">4.</td>
+<td class="table-name"><span class="word">1Кор</span></td>
+<td class="table-count">6</td>
+<td class="table-suggest"><span class="word">1 Кор</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">5.</td>
+<td class="table-name"><span class="word">1Кор.З</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">1 Кор</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">6.</td>
+<td class="table-name"><span class="word">1Пет</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">1 Пет</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">7.</td>
+<td class="table-name"><span class="word">1Пет5</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">1 Пет 5</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">8.</td>
+<td class="table-name"><span class="word">1Тим</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">1 Тим</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">9.</td>
+<td class="table-name"><span class="word">2Кор</span></td>
+<td class="table-count">4</td>
+<td class="table-suggest"><span class="word">2 Кор</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">10.</td>
+<td class="table-name"><span class="word">2Пет</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">2 Пет</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">11.</td>
+<td class="table-name"><span class="word">2Пет.З</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">2 ПТС</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">12.</td>
+<td class="table-name"><span class="word">4Цар</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">4 Сар</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">13.</td>
+<td class="table-name"><span class="word">6ольше</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">6 больше</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">14.</td>
+<td class="table-name"><span class="word">6ыла</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">была</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">15.</td>
+<td class="table-name"><span class="word">Eмy</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Ему</span></td>
+<td class="table-comment"><code class="letters-en">en: E*y</code><br/><code class="letters-ru">ru: *м*</code></td>
+</tr>
+<tr>
+<td class="table-num">16.</td>
+<td class="table-name"><span class="word">yтра</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">утра</span></td>
+<td class="table-comment"><code class="letters-en">en: y***</code><br/><code class="letters-ru">ru: *тра</code></td>
+</tr>
+<tr>
+<td class="table-num">17.</td>
+<td class="table-name"><span class="word">Быт1</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Быт 1</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">18.</td>
+<td class="table-name"><span class="word">Вааловых</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">Валовых</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">19.</td>
+<td class="table-name"><span class="word">Вефиле</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">20.</td>
+<td class="table-name"><span class="word">Вефиль</span></td>
+<td class="table-count">3</td>
+<td class="table-suggest"><span class="word">Вафель</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">21.</td>
+<td class="table-name"><span class="word">Вефиля</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">22.</td>
+<td class="table-name"><span class="word">Воанаргес</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Воанергес</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">23.</td>
+<td class="table-name"><span class="word">Вследствии</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Вследствие</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">24.</td>
+<td class="table-name"><span class="word">Галгала</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Глагола</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">25.</td>
+<td class="table-name"><span class="word">Галгале</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Глаголе</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">26.</td>
+<td class="table-name"><span class="word">Господен</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Господень</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">27.</td>
+<td class="table-name"><span class="word">Дофаиме</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">28.</td>
+<td class="table-name"><span class="word">ЗЦар</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Зар</span>, <span class="word">Царь</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">29.</td>
+<td class="table-name"><span class="word">Излию</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Илию</span>, <span class="word">Излив</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">30.</td>
+<td class="table-name"><span class="word">Иоан</span></td>
+<td class="table-count">25</td>
+<td class="table-suggest"><span class="word">Иоанн</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">31.</td>
+<td class="table-name"><span class="word">Каргель</span></td>
+<td class="table-count">10</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">32.</td>
+<td class="table-name"><span class="word">Каргеля</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">33.</td>
+<td class="table-name"><span class="word">Кармиле</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">Кормили</span>, <span class="word">Кормилец</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">34.</td>
+<td class="table-name"><span class="word">Киссона</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Кессона</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">35.</td>
+<td class="table-name"><span class="word">Кровию</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Крови</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">36.</td>
+<td class="table-name"><span class="word">Круммахера</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">37.</td>
+<td class="table-name"><span class="word">Ливеных</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Ливерных</span>, <span class="word">Левиных</span>, <span class="word">Ливиных</span>, <span class="word">Ливны</span>, <span class="word">Сливных</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">38.</td>
+<td class="table-name"><span class="word">Мтф</span></td>
+<td class="table-count">5</td>
+<td class="table-suggest"><span class="word">МТВ</span>, <span class="word">МДФ</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">39.</td>
+<td class="table-name"><span class="word">НАЧАТОК</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">НАЧАТО</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">40.</td>
+<td class="table-name"><span class="word">Нисшел</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Ницше</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">41.</td>
+<td class="table-name"><span class="word">Пейсти</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">42.</td>
+<td class="table-name"><span class="word">Разодрание</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Разодранные</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">43.</td>
+<td class="table-name"><span class="word">Хорафа</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Хороша</span>, <span class="word">Хорева</span>, <span class="word">Корфа</span>, <span class="word">Графа</span>, <span class="word">Охрана</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">44.</td>
+<td class="table-name"><span class="word">Цар</span></td>
+<td class="table-count">19</td>
+<td class="table-suggest"><span class="word">Царь</span>, <span class="word">Сар</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">45.</td>
+<td class="table-name"><span class="word">благодеющей</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">46.</td>
+<td class="table-name"><span class="word">благопотребным</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">47.</td>
+<td class="table-name"><span class="word">благоугодного</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">богоугодного</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">48.</td>
+<td class="table-name"><span class="word">благоугодное</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">благоугодно</span>, <span class="word">богоугодное</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">49.</td>
+<td class="table-name"><span class="word">благоугодны</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">благоугодно</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">50.</td>
+<td class="table-name"><span class="word">благоугодные</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">богоугодные</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">51.</td>
+<td class="table-name"><span class="word">вce</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">все</span></td>
+<td class="table-comment"><code class="letters-en">en: *ce</code><br/><code class="letters-ru">ru: в**</code></td>
+</tr>
+<tr>
+<td class="table-num">52.</td>
+<td class="table-name"><span class="word">вeчepa</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">вечера</span></td>
+<td class="table-comment"><code class="letters-en">en: *e*epa</code><br/><code class="letters-ru">ru: в*ч***</code></td>
+</tr>
+<tr>
+<td class="table-num">53.</td>
+<td class="table-name"><span class="word">веруюших</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">верующих</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">54.</td>
+<td class="table-name"><span class="word">ветхозаветнее</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">ветхозаветное</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">55.</td>
+<td class="table-name"><span class="word">ветхозаветний</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">ветхозаветный</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">56.</td>
+<td class="table-name"><span class="word">ветхозаветних</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">ветхозаветных</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">57.</td>
+<td class="table-name"><span class="word">вникнутъ</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">вникнуть</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">58.</td>
+<td class="table-name"><span class="word">входяший</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">входящий</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">59.</td>
+<td class="table-name"><span class="word">естъ</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">есть</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">60.</td>
+<td class="table-name"><span class="word">еше</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">еще</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">61.</td>
+<td class="table-name"><span class="word">знатъ</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">знать</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">62.</td>
+<td class="table-name"><span class="word">излию</span></td>
+<td class="table-count">3</td>
+<td class="table-suggest"><span class="word">Илию</span>, <span class="word">излив</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">63.</td>
+<td class="table-name"><span class="word">ли в несвятом</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">ливне святом</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">64.</td>
+<td class="table-name"><span class="word">накормляя</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">65.</td>
+<td class="table-name"><span class="word">напояющими</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">66.</td>
+<td class="table-name"><span class="word">напояя</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">67.</td>
+<td class="table-name"><span class="word">начатком</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">начаткам</span>, <span class="word">начатом</span>, <span class="word">нечетком</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">68.</td>
+<td class="table-name"><span class="word">начаток</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">начата</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">69.</td>
+<td class="table-name"><span class="word">недоросшей</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">недорослей</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">70.</td>
+<td class="table-name"><span class="word">недуховность</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">не духовность</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">71.</td>
+<td class="table-name"><span class="word">неложно</span></td>
+<td class="table-count">3</td>
+<td class="table-suggest"><span class="word">несложно</span>, <span class="word">неважно</span>, <span class="word">нежно</span>, <span class="word">неложной</span>, <span class="word">неладно</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">72.</td>
+<td class="table-name"><span class="word">непоняты</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">непонятый</span>, <span class="word">непонятны</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">73.</td>
+<td class="table-name"><span class="word">непотребленное</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">74.</td>
+<td class="table-name"><span class="word">нисшел</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">нашел</span>, <span class="word">Ницше</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">75.</td>
+<td class="table-name"><span class="word">обетовано</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">обетованной</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">76.</td>
+<td class="table-name"><span class="word">обширностъ</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">обширность</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">77.</td>
+<td class="table-name"><span class="word">пашковцев</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Машковцев</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">78.</td>
+<td class="table-name"><span class="word">пещись</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">79.</td>
+<td class="table-name"><span class="word">прийди</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">приди</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">80.</td>
+<td class="table-name"><span class="word">приобресть</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">приобрести</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">81.</td>
+<td class="table-name"><span class="word">пришед</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">пришел</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">82.</td>
+<td class="table-name"><span class="word">прообразно</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">про образно</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">83.</td>
+<td class="table-name"><span class="word">проповедывал</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">проповедовал</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">84.</td>
+<td class="table-name"><span class="word">проповедывали</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">проповедовали</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">85.</td>
+<td class="table-name"><span class="word">проповедывать</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">проповедовать</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">86.</td>
+<td class="table-name"><span class="word">пятидесятками</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">пяти десятками</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">87.</td>
+<td class="table-name"><span class="word">рассчета</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">расчета</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">88.</td>
+<td class="table-name"><span class="word">редстоковцев</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">89.</td>
+<td class="table-name"><span class="word">селитренны</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">селитряный</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">90.</td>
+<td class="table-name"><span class="word">скниию</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">скинию</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">91.</td>
+<td class="table-name"><span class="word">соделались</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">сделались</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">92.</td>
+<td class="table-name"><span class="word">тoбою</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">тобою</span></td>
+<td class="table-comment"><code class="letters-en">en: *o***</code><br/><code class="letters-ru">ru: т*бою</code></td>
+</tr>
+<tr>
+<td class="table-num">93.</td>
+<td class="table-name"><span class="word">тарсянином</span></td>
+<td class="table-count">2</td>
+<td class="table-suggest"><span class="word">тарусянином</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">94.</td>
+<td class="table-name"><span class="word">торжественнейшие</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">95.</td>
+<td class="table-name"><span class="word">трудноприемлемой</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">трудно приемлемой</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">96.</td>
+<td class="table-name"><span class="word">тумим</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">97.</td>
+<td class="table-name"><span class="word">уверование</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">верование</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">98.</td>
+<td class="table-name"><span class="word">уверования</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">верования</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">99.</td>
+<td class="table-name"><span class="word">урим</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">100.</td>
+<td class="table-name"><span class="word">услышания</span></td>
+<td class="table-count">3</td>
+<td class="table-suggest"><span class="word">слышания</span>, <span class="word">услышанная</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">101.</td>
+<td class="table-name"><span class="word">цислу</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">числу</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">102.</td>
+<td class="table-name"><span class="word">человекоугодничества</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"></td>
+<td class="table-comment"></td>
+</tr>
+</table>
+<table class="table"><caption>Capitalization</caption>
+<tr><th class="table-num">Num.</th><th class="table-name">Typo</th><th class="table-count">Count</th><th class="table-suggest">Suggest</th><th class="table-comment">Comment</th></tr>
+<tr>
+<td class="table-num">1.</td>
+<td class="table-name"><span class="word">лаодикийский</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Лаодикийский</span></td>
+<td class="table-comment"></td>
+</tr>
+<tr>
+<td class="table-num">2.</td>
+<td class="table-name"><span class="word">лаодикийском</span></td>
+<td class="table-count">1</td>
+<td class="table-suggest"><span class="word">Лаодикийском</span></td>
+<td class="table-comment"></td>
+</tr>
+</table>
+</div>
+</div>
+<script>
+(function() {
+    if(window.location.protocol === 'file:') {
+        return;
+    }
+
+    var links = document.querySelectorAll('.page a');
+    for(var i = 0, len = links.length; i < len; i++) {
+        var link = links[i];
+        if(link.href.search(/^file:/) !== -1) {
+            link.removeAttribute('href');
+        }
+    }
+})();
+</script>
+</body>
+</html>

@@ -11,22 +11,22 @@ var metalsmith  = require('metalsmith'),
   snippet       = require('metalsmith-snippet'),
   sitemap       = require('metalsmith-sitemap');
 
-  metalsmith(__dirname)
-    .source('src')
-    .use(define(require('./config/define')))
-    .use(collections(require('./config/collections')))
-    .use(pagination(require('./config/pagination')))
-    .use(markdown(require('./config/markdown')))
-    .use(date())
-    .use(drafts())
-    .use(snippet(require('./config/snippet')))
-    .use(permalinks())
-    .use(autoprefixer())
-    .use(templates(require('./config/templates')))
-    .use(sitemap(require('./config/sitemap')))
-    .destination('build')
-    .build(function (err) {
-    if (err) {
-      throw err;
-    }
-  });
+metalsmith(__dirname)
+  .source('src')
+  .use(define(require('./config/define')))
+  .use(collections(require('./config/collections')))
+  .use(pagination(require('./config/pagination')))
+  .use(markdown(require('./config/markdown')))
+  .use(date())
+  .use(drafts())
+  .use(snippet(require('./config/snippet')))
+  .use(permalinks())
+  .use(autoprefixer())
+  .use(templates(require('./config/templates')))
+  .use(sitemap(require('./config/sitemap')))
+  .destination('build')
+  .build(function(err) {
+  if (err) {
+    throw err;
+  }
+});

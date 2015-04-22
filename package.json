@@ -6,8 +6,9 @@
   "main": "index.js",
   "scripts": {
     "test": "write-good src/posts/**/*.md",
+    "start": "nodemon -e md,styl,jade,css,html,js,coffee,json,cson --ignore build/ ./build.coffee",
     "serve": "serve build -p ${PORT:-3000}",
-    "build": "node build.js",
+    "build": "coffee build.coffee",
     "deploy": "git push \"git@github.com:a1ip/rigovanov.ru.git\"; npm run build && cd build && git init . && git add . && git commit -m \"Deploy\"; git push \"git@github.com:a1ip/rigovanov.ru.git\" master:gh-pages --force && rm -rf .git"
   },
   "repository": {
@@ -21,6 +22,7 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "coffee-script": "^1.9.2",
     "highlighter": "^0.0.3",
     "jade": "^1.9.2",
     "metalsmith": "^1.5.0",
@@ -37,8 +39,8 @@
     "metalsmith-sitemap": "0.0.9",
     "metalsmith-snippet": "^1.0.1",
     "metalsmith-templates": "^0.7.0",
-    "metalsmith-watch": "^0.2.0",
     "moment": "^2.10.0",
+    "nodemon": "^1.3.7",
     "serve": "^1.4.0",
     "write-good": "^0.9.1"
   }

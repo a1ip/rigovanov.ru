@@ -1,6 +1,5 @@
 ---
 lang: en
-layout: post
 title: "Exclude .swp files during Octopress deploy"
 date: 2014-07-11 12:34:27 +0400
 comments: true

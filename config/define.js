@@ -12,5 +12,6 @@ module.exports = {
     uri: 'http://phil.rigovanov.ru',
     name: 'Phil Rigovanov'
   },
+  lang: 'ru',
   moment: require('moment')
 }

@@ -9,7 +9,8 @@ var metalsmith  = require('metalsmith'),
   autoprefixer  = require('metalsmith-autoprefixer'),
   pagination    = require('metalsmith-pagination'),
   snippet       = require('metalsmith-snippet'),
-  sitemap       = require('metalsmith-sitemap');
+  sitemap       = require('metalsmith-sitemap'),
+  assets = require('metalsmith-assets');
 
 metalsmith(__dirname)
   .source('src')
@@ -24,6 +25,7 @@ metalsmith(__dirname)
   .use(autoprefixer())
   .use(templates(require('./config/templates')))
   .use(sitemap(require('./config/sitemap')))
+  .use(assets())
   .destination('build')
   .build(function(err) {
   if (err) {

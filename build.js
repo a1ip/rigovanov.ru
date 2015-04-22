@@ -10,10 +10,12 @@ var metalsmith  = require('metalsmith'),
   pagination    = require('metalsmith-pagination'),
   snippet       = require('metalsmith-snippet'),
   sitemap       = require('metalsmith-sitemap'),
-  assets = require('metalsmith-assets');
+  assets        = require('metalsmith-assets'),
+  watch         = require('metalsmith-watch');
 
 metalsmith(__dirname)
   .source('src')
+  .use(watch())
   .use(define(require('./config/define')))
   .use(collections(require('./config/collections')))
   .use(pagination(require('./config/pagination')))

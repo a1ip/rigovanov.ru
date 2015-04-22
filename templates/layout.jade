@@ -8,6 +8,14 @@ html(lang='#{lang}')
       meta(name='author', content='#{author}')
     else
       meta(name='author', content='#{owner.name}')
+    if description
+      meta(name='description', content='#{description}')
+    else
+      meta(name='description', content='#{blog.description}')
+    if keywords
+      meta(name='keywords', content='#{keywords}')
+    else
+      meta(name='keywords', content='#{blog.keywords}')
     block head
     block title
       title= title ? title + " | " + blog.title : blog.title

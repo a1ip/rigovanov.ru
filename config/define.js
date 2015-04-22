@@ -2,7 +2,8 @@ module.exports = {
   blog: {
     uri: 'http://rigovanov.ru',
     title: 'Phil Rigovanov',
-    description: 'My blog'
+    description: 'The personal blog of Phil Rigovanov',
+    keywords: 'Phil Rigovanov, blog'
   },
   integrations: {
     disqus: 'a1ip',

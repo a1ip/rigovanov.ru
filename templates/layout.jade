@@ -19,6 +19,7 @@ html(lang='#{lang}')
     block title
       title= title ? title + " | " + blog.title : blog.title
     block styles
+    include favicon.html
   body
     block body
       #layout-main

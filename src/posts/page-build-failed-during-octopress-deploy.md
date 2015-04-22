@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: post
 title: "Page build failed during Octopress deploy"
 date: 2014-05-06 12:34:27 +0400

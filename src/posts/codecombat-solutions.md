@@ -1,4 +1,5 @@
 ---
+lang: en
 layout: post
 title: "CodeCombat solutions"
 date: 2014-06-19 22:23:06 +0400

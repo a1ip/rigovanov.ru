@@ -1,17 +1,11 @@
-html(lang='en')
-  head
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
-    meta(name='viewport', content='width=device-width')
-    if author
-      meta(name='author', content='#{author}')
-    else
-      meta(name='author', content='#{owner.name}')
-    title= title
-  body
-    h1= title
-    div.timestamp= date
-    article!= contents
+extends layout
+
+block main
+  h1= title
+  div.timestamp= date
+  article!= contents
+
+block bottom
     div#disqus_thread
 
     script.

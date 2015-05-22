@@ -20,6 +20,7 @@ html(lang='#{lang}')
       title= title ? title + " | " + blog.title : blog.title
     block styles
     include favicon.html
+    include ga.html
   body
     block body
       #layout-main

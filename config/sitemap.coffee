@@ -1,5 +1,5 @@
 module.exports =
-  ignoreFiles: [ /test.xml/ ]
+  ignoreFiles: []
   output: 'sitemap.xml'
   hostname: 'http://rigovanov.ru'
   modifiedProperty: 'modified'

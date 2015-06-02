@@ -6,7 +6,7 @@ module.exports =
     keywords: 'Phil Rigovanov, blog'
   integrations:
     disqus: 'a1ip'
-    analytics: 'UA-XXXXXXX-X'
+    analytics: 'UA-26406005-6'
   owner:
     uri: 'http://phil.rigovanov.ru'
     name: 'Phil Rigovanov'

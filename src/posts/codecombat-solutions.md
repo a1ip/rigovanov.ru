@@ -8,8 +8,13 @@ template: post.jade
 gist: a1ip/2ea627a4bf6067a63634 a1ip/c5551df1b1024ada8a00 a1ip/6d3e7cf0c39b21c25e22 a1ip/2a89de59f88d8325d67d a1ip/b541cfe7163d23a284bf
 ---
 
-gist:a1ip/2ea627a4bf6067a63634
-gist:a1ip/c5551df1b1024ada8a00
-gist:a1ip/6d3e7cf0c39b21c25e22
-gist:a1ip/2a89de59f88d8325d67d
-gist:a1ip/b541cfe7163d23a284bf
+<script src="https://gist.githubusercontent.com/a1ip/2ea627a4bf6067a63634.js">
+</script>
+<script src="https://gist.githubusercontent.com/a1ip/c5551df1b1024ada8a00.js">
+</script>
+<script src="https://gist.githubusercontent.com/a1ip/6d3e7cf0c39b21c25e22.js">
+</script>
+<script src="https://gist.githubusercontent.com/a1ip/2a89de59f88d8325d67d.js">
+</script>
+<script src="https://gist.githubusercontent.com/a1ip/b541cfe7163d23a284bf.js">
+</script>

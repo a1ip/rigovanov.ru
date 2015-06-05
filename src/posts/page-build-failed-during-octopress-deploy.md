@@ -1,7 +1,7 @@
 ---
 lang: ru
 title: "Page build failed during Octopress deploy"
-date: 2014-05-06 12:34:27 +0400
+date: 2014-05-06 12:34
 comments: true
 categories: [error, ruby, octopress, deploying, rake, Github Pages]
 template: post.jade

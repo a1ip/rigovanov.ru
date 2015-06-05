@@ -1,7 +1,7 @@
 ---
 lang: en
 title: "CodeCombat solutions"
-date: 2014-06-19 22:23:06 +0400
+date: 2014-06-19 22:23
 comments: true
 categories: [programming, code, solutions, Literate CoffeeScript, CoffeeScript, learning, English]
 template: post.jade

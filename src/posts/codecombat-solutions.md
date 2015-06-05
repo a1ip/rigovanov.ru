@@ -2,6 +2,7 @@
 lang: en
 title: "CodeCombat solutions"
 date: 2014-06-19
+keywords: CodeCombat, solutions, CoffeeScript
 comments: true
 categories: [programming, code, solutions, Literate CoffeeScript, CoffeeScript, learning, English]
 template: post.jade

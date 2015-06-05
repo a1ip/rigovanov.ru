@@ -5,7 +5,7 @@
   "description": "Resonal blog of Phil Rigovanov",
   "main": "index.js",
   "scripts": {
-    "test": "write-good src/posts/**/*.md",
+    "lint": "write-good src/posts/**/*.md",
     "start": "nodemon -e md,styl,jade,css,html,js,coffee,json,cson --ignore build/ ./build.coffee",
     "serve": "serve build -p ${PORT:-3000}",
     "build": "coffee build.coffee",

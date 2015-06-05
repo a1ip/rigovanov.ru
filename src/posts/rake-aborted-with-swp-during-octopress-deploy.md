@@ -1,7 +1,7 @@
 ---
 lang: ru
 title: "Exclude .swp files during Octopress deploy"
-date: 2014-07-11 12:34
+date: 2014-07-11
 comments: true
 categories: [error, ruby, octopress, deploying, rake, vim]
 template: post.jade

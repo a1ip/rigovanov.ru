@@ -1,7 +1,7 @@
 ---
 lang: en
 title: Moved this blog from Octopress to Metalsmith.
-date: 2015-04-08 13:00
+date: 2015-04-08
 author: Phil Rigovanov
 template: post.jade
 ---

@@ -2,7 +2,7 @@ extends layout
 
 block main
   h1= title
-  div.timestamp= date
+  time.timestamp(datetime=date)= moment(date).format('MMMM D, YYYY')
   article!= contents
 
 block bottom

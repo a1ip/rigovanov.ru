@@ -20,4 +20,4 @@ After that, simply [download](http://sourceforge.net/projects/lazarus/files/Laza
 2. ***fpcsrc***
 3. ***Lazarus***
 
-Thats all. Happy programming!
+That's all. Happy programming!

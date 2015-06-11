@@ -15,9 +15,15 @@ html(lang='#{lang}')
       meta(name='keywords', content='#{keywords}')
     else
       meta(name='keywords', content='#{blog.keywords}')
+    link(rel='alternate', type='application/rss+xml', title='RSS', href='/feed.xml')
     block head
     block title
       title= title ? title + " | " + blog.title : blog.title
+    // CSS
+    link(rel='stylesheet', href='/css/poole.css')
+    link(rel='stylesheet', href='/css/syntax.css')
+    link(rel='stylesheet', href='/css/hyde.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface')
     block styles
     include favicon.html
     include ga.html

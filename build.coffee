@@ -13,6 +13,14 @@ snippet = require('metalsmith-snippet')
 sitemap = require('metalsmith-sitemap')
 assets = require('metalsmith-assets')
 
+fixPath = (prop, val) ->
+  (files, metalsmith, done) ->
+    for file of files
+      if files[file][prop] == val
+        files[file].path = '/'
+    done()
+    return
+
 metalsmith(__dirname)
   .source('src')
   .use(define(require('./config/define')))
@@ -26,10 +34,17 @@ metalsmith(__dirname)
   .use(permalinks())
   .use(autoprefixer())
   .use(templates(require('./config/templates')))
+  .use(fixPath('path', ''))
   .use(sitemap(require('./config/sitemap')))
   .use(assets())
   .destination('build')
-  .build (err) ->
+  .build (err,files) ->
+    myc=0
+    for file of files
+      unless files[file].title == undefined
+        console.log("Path: ", files[file].path,", Title:", files[file].title)
+        myc+=1
+    console.log("There are ", myc, " defined files")
     if err
       throw err
     return

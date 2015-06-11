@@ -29,6 +29,8 @@ html(lang='#{lang}')
     include ga.html
   body
     block body
-      #layout-main
+      #layout-main.content.container
         block main
+      block sidebar
+        include sidebar
       block bottom

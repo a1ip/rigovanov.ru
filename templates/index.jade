@@ -3,20 +3,21 @@ title= 'Home'
 extends layout
 
 block main
+  .posts
     each file in pagination.files
-      article.content
+      article.post
         header.header
           h2.content-title
             a(href='/' + file.path)= file.title
           small.header-metadata
             time.timestamp(datetime=file.date)= moment(file.date).format('D MMM YYYY')
         section.content-article!= file.snippet
-    nav.navigation.cf
-      if pagination.previous
-        a.btn.pull-right(href='/' + pagination.previous.path)
-          | Newer&nbsp;&nbsp;
-          i.icon-right-dir
-      if pagination.next
-        a.btn.pull-left(href='/' + pagination.next.path)
-          i.icon-left-dir
-          | &nbsp;&nbsp;Older
+  nav.navigation.cf.pagination
+    if pagination.previous
+      a.btn.pull-right(href='/' + pagination.previous.path)
+        | Newer&nbsp;&nbsp;
+        i.icon-right-dir
+    if pagination.next
+      a.btn.pull-left(href='/' + pagination.next.path)
+        i.icon-left-dir
+        | &nbsp;&nbsp;Older

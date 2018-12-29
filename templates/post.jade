@@ -1,0 +1,18 @@
+extends layout
+
+block main
+  h1= title
+  time.timestamp(datetime=date.toISOString())= moment(date).format('D MMM YYYY')
+  article!= contents
+  div#disqus_thread
+
+block bottom
+    include bibleref.html
+
+    script.
+      //- Disqus code snippet
+      (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//a1ip.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();

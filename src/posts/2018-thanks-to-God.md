@@ -1,7 +1,7 @@
 ---
 lang: ru
 title: За что я благодарю Бога по прошествии 2018-го года
-date: 2019-01-01
+date: 2018-12-31
 lastmod: 2019-01-01
 keywords: Бог, ответ, молитва, церковь
 author: Phil Rigovanov

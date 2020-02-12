@@ -54,7 +54,7 @@ template: stuff.jade
 
 [**Крести́ть**](https://ru.wikipedia.org/wiki/Крещение) (Мф. 3:6) — окунать, погружать в воду.
 
-[**Лани́та**](https://ru.wiktionary.org/wiki/ланита) (Мф. 3:6) — щека́.
+[**Лани́та**](https://ru.wiktionary.org/wiki/ланита) (Пс. 3:8) — щека́.
 
 [**Межа́**](https://ru.wiktionary.org/wiki/межа) (Пс. 15:6) — предел, рубеж, граница.
 

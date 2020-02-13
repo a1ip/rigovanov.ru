@@ -9,7 +9,7 @@
     "start": "nodemon -e md,styl,jade,css,html,js,coffee,json,cson --ignore build/ ./build.coffee",
     "serve": "serve build -p ${PORT:-3000}",
     "build": "coffee build.coffee",
-    "deploy": "git push \"git@github.com:a1ip/rigovanov.ru.git\"; npm run build && cd build && git init . && git add . && git commit -m \"Deploy\"; git push \"git@github.com:a1ip/a1ip.github.io.git\" master:master --force && rm -rf .git"
+    "deploy": "git push \"git@github.com:a1ip/rigovanov.ru.git\"; npm run build && cd build && git init . && git add . && git commit -m \"Deploy\"; git push \"git@github.com:a1ip/old.a1ip.github.io.git\" master:master --force && rm -rf .git"
   },
   "repository": {
     "type": "git",
